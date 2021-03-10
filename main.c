@@ -3,9 +3,9 @@
 //biblioteca OpenMP
 #include <omp.h>
 
-// le e adicionar na fila(Produtor)
-// Gerenciar threads(arquiteto)
-// Fazer as funcs do Consumidor
+// le e adicionar na fila(Produtor) - Carlos paizao onzao
+// Gerenciar threads(arquiteto) - Lucas
+// Fazer as funcs do Consumidor - Fabiano
 
 //funcao ola
 void ola();
