@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 //biblioteca OpenMP
 #include <omp.h>
 
+#include "filaLeitura.h"
 // le e adicionar na fila(Produtor) - Carlos paizao onzao
 // Gerenciar threads(arquiteto) - Lucas
 // Fazer as funcs do Consumidor - Fabiano
@@ -25,8 +27,7 @@ void consumidor() {
 }
 
 
-void init() {
-  int 
+void init() { 
   int numeroDaThread = omp_get_thread_num();
 
   if(numeroDaThread == 1) {
@@ -44,10 +45,23 @@ void init() {
 // le o caminho do arquivo e a palavra
 int main(){
 	int numeroDeThreads = 3;
+	char enderecoArquivo[100];
 
+	//#pragma omp parallel num_threads(omp_get_thread_num())
+	//init();
+	
+	int i;
+	struct filaElementos fila;
+	char x[1000];
+	iniciarFila(&fila);
+	printf("Digite o endereco do arquivo: \n");
+	scanf("%s", &enderecoArquivo);
+	leArquivo(enderecoArquivo, &fila);	
+	//consultar(&fila);
 
-	#pragma omp parallel num_threads(omp_get_thread_num())
-	init();
-		
+	//remover(&fila);
+	consultar(&fila);
+	esvaziar(&fila);
+	//consultarComecoFila(&fila);
 	return 0;
 }
