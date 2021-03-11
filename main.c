@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+#include <string.h>
+// #include <conio.h>
 //biblioteca OpenMP
 #include <omp.h>
 
@@ -55,7 +56,8 @@ int main(){
 	char x[1000];
 	iniciarFila(&fila);
 	printf("Digite o endereco do arquivo: \n");
-	scanf("%s", &enderecoArquivo);
+	fflush(stdin);
+	scanf("%s", enderecoArquivo);
 	leArquivo(enderecoArquivo, &fila);	
 	//consultar(&fila);
 

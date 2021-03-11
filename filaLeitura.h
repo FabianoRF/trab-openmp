@@ -22,7 +22,7 @@ void iniciarFila(struct filaElementos *fila)
 void inserir(struct filaElementos *fila, item palavra)
 {
     if(fila->fim == m - 1)
-        printf("Fila está lotada, aguarde... \n");
+        printf("Fila estï¿½ lotada, aguarde... \n");
     else
     {
         fila->fim++;
@@ -47,7 +47,7 @@ void consultar(struct filaElementos *fila)
 void consultarComecoFila(struct filaElementos *fila)
 {
     int i = 0;
-    printf("Lista o primeiro elemento da fila : %s \n", fila->elementos[fila->comeco]);
+    printf("Lista o primeiro elemento da fila : %s \n", fila->elementos[fila->comeco].linha);
 }
 
 void remover(struct filaElementos *fila){
@@ -84,17 +84,17 @@ void leArquivo(char nomeArquivo[100], struct filaElementos *fila){
   i = 1;
   while (!feof(arq))
   {
-	// Lê uma linha (inclusive com o '\n')
-      result = fgets(Linha, 100, arq);  // o 'fgets' lê até 99 caracteres ou até o '\n'
-      if (result)  // Se foi possível ler
-	  printf("Linha %d : %s",i,Linha);
+	// Lï¿½ uma linha (inclusive com o '\n')
+      result = fgets(Linha, 100, arq);  // o 'fgets' lï¿½ atï¿½ 99 caracteres ou atï¿½ o '\n'
+      if (result)  // Se foi possï¿½vel ler
+	  printf("\nLinha %d : %s",i,Linha);
 	  for(j = 0; j < strlen(Linha); j++){
 	  	palavra.linha[j] = Linha[j];
 	  }
-	  inserir(&fila, palavra);
+	  inserir(fila, palavra);
       i++;
   }
-  //consultar(&fila);
+  consultar(fila);
   //printf("i: %d /fim: %d", i, &fila->fim);
   fclose(arq);
 }
